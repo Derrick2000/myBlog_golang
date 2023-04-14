@@ -4,15 +4,28 @@
     <meta chaset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE-edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet", href="/assets/bootstrap-5.3.0-alpha3-dist/css/bootstrap.min.css">
-    <script src="/assets/bootstrap-5.3.0-alpha3-dist/js/bootstrap.min.js"></script>
+    <link rel="stylesheet", href="/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/editorMD/css/editormd.min.css">
+    <script src="/assets/js/bootstrap.min.js"></script>
     <title>Document</title>
 </head>
 <body>
     <div class="container">
        {{template "header"}}
 
-       <p>Home</p>
+       <div id="test-editor">
+        <textarea style="display:none;">### Title</textarea>
+    </div>
+    <script src="https://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+    <script src="assets/editorMD/editormd.min.js"></script>
+    <script type="text/javascript">
+        $(function() {
+            var editor = editormd("test-editor", {
+                height :600,
+                path   : "assets/editorMD/lib/"
+            });
+        });
+    </script>
     </div>
     
    
