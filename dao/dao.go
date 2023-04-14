@@ -9,7 +9,7 @@ import (
 )
 
 type Manager interface {
-	AddUser(user *model.User)
+	RegisterUser(user *model.User)
 }
 
 type manager struct {
@@ -28,6 +28,6 @@ func init() {
 	db.AutoMigrate(&model.User{})
 }
 
-func (mngr *manager) AddUser(user *model.User) {
+func (mngr *manager) RegisterUser(user *model.User) {
 	mngr.db.Create(user)
 }

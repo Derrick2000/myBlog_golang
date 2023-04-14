@@ -7,7 +7,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func AddUser(context *gin.Context) {
+func RegisterUser(context *gin.Context) {
 	username := context.PostForm("username")
 	password := context.PostForm("password")
 
@@ -16,9 +16,18 @@ func AddUser(context *gin.Context) {
 		Password: password,
 	}
 
-	dao.Mngr.AddUser(&user)
+	dao.Mngr.RegisterUser(&user)
+	// context.Redirect(200, "/")
+}
+
+func GoRegister(context *gin.Context) {
+	context.HTML(200, "register.html", nil)
+}
+
+func Index(context *gin.Context) {
+	context.HTML(200, "index.html", nil)
 }
 
 func ListUser(context *gin.Context) {
-	context.HTML(200, "index.html", nil)
+	context.HTML(200, "userlist.html", nil)
 }

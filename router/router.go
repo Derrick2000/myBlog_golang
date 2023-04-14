@@ -11,7 +11,9 @@ func Start() {
 	e.LoadHTMLGlob("templates/*")
 	e.Static("/assets", "./assets")
 
-	e.GET("/index", controller.ListUser)
-	e.POST("/index", controller.AddUser)
+	//e.GET("/index", controller.ListUser)
+	e.GET("/register", controller.GoRegister)
+	e.POST("/register", controller.RegisterUser)
+	e.GET("/", controller.Index)
 	e.Run()
 }
