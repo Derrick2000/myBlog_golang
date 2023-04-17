@@ -14,7 +14,7 @@ type Manager interface {
 
 	AddBlog(blog *model.Blog)
 	GetAllBlogs() []model.Blog
-	getBlogById(pid int) model.Blog
+	GetBlogById(pid int) model.Blog
 }
 
 type manager struct {
@@ -54,7 +54,7 @@ func (mngr *manager) GetAllBlogs() []model.Blog {
 	return blogs
 }
 
-func (mngr *manager) getBlogById(pid int) model.Blog {
+func (mngr *manager) GetBlogById(pid int) model.Blog {
 	var blog model.Blog
 	mngr.db.First(&blog, pid)
 	return blog

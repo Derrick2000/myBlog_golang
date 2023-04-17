@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta chaset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE-edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet", href="/assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/assets/editorMD/css/editormd.min.css">
+        <script src="/assets/js/bootstrap.min.js"></script>
+
+        <title>Add A Blog</title>
+    </head>
+
+    <body>
+        <div class="container">
+            {{template "header"}}
+
+            <form action="/blog" method="post">
+                <div class="row">
+                    <div class="col-md-4 mt-1">
+                        <label for="title" class="form-label">Title</label>
+                        <input type="text" name="title" class="form-control" id="title"><br>
+
+                        <label for="tag" class="form-label">Tag</label>
+                        <input type="text" name="tag" class="form-control" id="tag"><br>
+                    </div>
+                    <div class="col-md-10">
+                        <div id="test-editormd">
+                            <textarea style="display:none", name="content"></textarea>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mt-3">
+                        <button type="submit" class="btn btn-primary">Add</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <script src="https://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+        <script src="assets/editorMD/editormd.min.js"></script>
+        <script type="text/javascript">
+            $(function() {
+                var editor = editormd("test-editormd", {
+                    height :600,
+                    path   : "assets/editorMD/lib/"
+                });
+            });
+        </script>
+    </body>
+</html>
